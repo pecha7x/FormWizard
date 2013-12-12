@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bunch_type.name %>
+</p>
+<% @bunch_type.fields.each do |field|%>
+    <p><%= field.name%></p>
+<%end%>

@@ -1,0 +1,2 @@
+module BunchTypesHelper
+end

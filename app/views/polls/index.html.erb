@@ -1,0 +1,16 @@
+<h1>Store</h1>
+
+<% if @polls.empty? %>
+    <p><strong>No answers</strong></p>
+<% end %>
+
+<% @polls.each do |poll| %>
+    <div class="poll">
+      <h2><%= poll.name %></h2>
+    </div>
+<% end %>
+
+<%= form_tag new_poll_path, method: :get do %>
+    <%= select_tag :bunch_type_id, options_from_collection_for_select(BunchType.all, :id, :name) %>
+    <%= submit_tag "New Group", name: nil %>
+<% end %>

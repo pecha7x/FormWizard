@@ -1,0 +1,27 @@
+<%= form_for(@poll) do |f| %>
+  <% if @poll.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@poll.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% @poll.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :bunch_type_id %>
+
+  <%= f.fields_for :properties, OpenStruct.new(@poll.properties) do |builder| %>
+    <% @poll.bunch_type.fields.each do |field| %>
+      <%= render "polls/fields/#{field.field_type}", field: field, f: builder %>
+    <% end %>
+  <% end %>
+
+  <%- unless @poll.bunch_type.fields.empty?%>
+    <div class="actions">
+      <%= f.submit "Save answers",:class => 'btn btn-success' %>
+    </div>
+  <%end%>
+<% end %>
