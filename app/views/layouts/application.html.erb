@@ -28,25 +28,25 @@
             <ul class="nav nav-pills">
               <%- if params[:controller] == "bunch_types"%>
                   <li class="<%= 'active' if current_page?(edit_bunch_type_path(1)) %>"><%= link_to("Contact Info", edit_bunch_type_path(1)) %></li>
-                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(2)) %>"><%= link_to("Motivation letter", edit_bunch_type_path(2)) %></li>
-                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(3)) %>"><%= link_to("Personal Info", edit_bunch_type_path(3)) %></li>
-                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(4)) %>"><%= link_to("Job", edit_bunch_type_path(4)) %></li>
-                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(5)) %>"><%= link_to("Accounts", edit_bunch_type_path(5)) %></li>
-                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(6)) %>"><%= link_to("Extra uploads", edit_bunch_type_path(6)) %></li>
+                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(11)) %>"><%= link_to("Motivation letter", edit_bunch_type_path(11)) %></li>
+                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(21)) %>"><%= link_to("Personal Info", edit_bunch_type_path(21)) %></li>
+                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(31)) %>"><%= link_to("Job", edit_bunch_type_path(31)) %></li>
+                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(41)) %>"><%= link_to("Accounts", edit_bunch_type_path(41)) %></li>
+                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(51)) %>"><%= link_to("Extra uploads", edit_bunch_type_path(51)) %></li>
               <%- elsif params[:controller] == "polls" && params[:action] == "new"%>
                   <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:1)) %>"><%= link_to("Contact Info", new_poll_path(bunch_type_id:1)) %></li>
-                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:2)) %>"><%= link_to("Motivation letter", new_poll_path(bunch_type_id:2)) %></li>
-                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:3)) %>"><%= link_to("Personal Info", new_poll_path(bunch_type_id:3)) %></li>
-                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:4)) %>"><%= link_to("Job", new_poll_path(bunch_type_id:4)) %></li>
-                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:5)) %>"><%= link_to("Accounts", new_poll_path(bunch_type_id:5)) %></li>
-                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:6)) %>"><%= link_to("Extra uploads", new_poll_path(bunch_type_id:6)) %></li>
+                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:11)) %>"><%= link_to("Motivation letter", new_poll_path(bunch_type_id:11)) %></li>
+                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:21)) %>"><%= link_to("Personal Info", new_poll_path(bunch_type_id:21)) %></li>
+                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:31)) %>"><%= link_to("Job", new_poll_path(bunch_type_id:31)) %></li>
+                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:41)) %>"><%= link_to("Accounts", new_poll_path(bunch_type_id:41)) %></li>
+                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:51)) %>"><%= link_to("Extra uploads", new_poll_path(bunch_type_id:51)) %></li>
               <%- else%>
                   <li class="<%= 'active' if current_page?(poll_path(1)) %>"><%= link_to("Contact Info",  poll_path(1)) %></li>
-                  <li class="<%= 'active' if current_page?(poll_path(2)) %>"><%= link_to("Motivation letter", poll_path(2)) %></li>
-                  <li class="<%= 'active' if current_page?(poll_path(3)) %>"><%= link_to("Personal Info", poll_path(3)) %></li>
-                  <li class="<%= 'active' if current_page?(poll_path(4)) %>"><%= link_to("Job", poll_path(4)) %></li>
-                  <li class="<%= 'active' if current_page?(poll_path(5)) %>"><%= link_to("Accounts",  poll_path(5)) %></li>
-                  <li class="<%= 'active' if current_page?(poll_path(6)) %>"><%= link_to("Extra uploads",  poll_path(6)) %></li>
+                  <li class="<%= 'active' if current_page?(poll_path(11)) %>"><%= link_to("Motivation letter", poll_path(11)) %></li>
+                  <li class="<%= 'active' if current_page?(poll_path(21)) %>"><%= link_to("Personal Info", poll_path(21)) %></li>
+                  <li class="<%= 'active' if current_page?(poll_path(31)) %>"><%= link_to("Job", poll_path(31)) %></li>
+                  <li class="<%= 'active' if current_page?(poll_path(41)) %>"><%= link_to("Accounts",  poll_path(41)) %></li>
+                  <li class="<%= 'active' if current_page?(poll_path(51)) %>"><%= link_to("Extra uploads",  poll_path(51)) %></li>
               <%- end%>
             </ul>
           </div>

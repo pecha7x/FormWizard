@@ -62,19 +62,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="66" selection-start="612" selection-end="612" vertical-scroll-proportion="3.125">
+            <state line="44" column="72" selection-start="3448" selection-end="3448" vertical-scroll-proportion="0.56836903">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="production.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Reps/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="31" selection-start="1264" selection-end="1264" vertical-scroll-proportion="0.6754658">
+            <state line="29" column="31" selection-start="1264" selection-end="1264" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bunch_type.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/bunch_type.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="22" selection-start="225" selection-end="236" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -110,11 +119,11 @@
         <option value="$PROJECT_DIR$/app/views/polls/show.html.erb" />
         <option value="$PROJECT_DIR$/app/models/bunch_type.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/views/bunch_types/index.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -869,13 +878,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/bunch_type.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="22" selection-start="225" selection-end="236" vertical-scroll-proportion="0.13975155">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="31" selection-start="202" selection-end="287" vertical-scroll-proportion="0.11645963">
@@ -932,13 +934,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="66" selection-start="612" selection-end="612" vertical-scroll-proportion="3.125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="30" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.0">
@@ -948,7 +943,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Reps/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="31" selection-start="1264" selection-end="1264" vertical-scroll-proportion="0.6754658">
+        <state line="29" column="31" selection-start="1264" selection-end="1264" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/bunch_type.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="22" selection-start="225" selection-end="236" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="72" selection-start="3448" selection-end="3448" vertical-scroll-proportion="0.56836903">
           <folding />
         </state>
       </provider>
