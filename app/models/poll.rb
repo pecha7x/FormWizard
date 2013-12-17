@@ -4,6 +4,8 @@ class Poll < ActiveRecord::Base
 
   validate :validate_properties
 
+  default_scope { where(company_id: Company.current_id) }
+
   def validate_properties
     bunch_type.fields.each do |field|
       if field.required? && properties[field.name].blank?

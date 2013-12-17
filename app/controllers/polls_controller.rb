@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-  before_action :set_bunch, only: [:edit,]
+  before_action :set_bunch, only: [:edit]
 
   def show
     @polls = Poll.where(bunch_type_id: params[:id])
@@ -32,7 +32,7 @@ class PollsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def poll_params
-      params.require(:poll).permit(:name, :bunch_type_id).tap do |whitelisted|
+      params.require(:poll).permit(:name, :company_id, :bunch_type_id).tap do |whitelisted|
         whitelisted[:properties] = params[:poll][:properties]
       end
     end

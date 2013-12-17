@@ -1,5 +1,9 @@
 FormWizard::Application.routes.draw do
+  devise_for :users
   resources :bunch_types
   resources :polls
-  root to: 'bunch_types#edit', id: 1
+  resources :companies
+  resources :admins
+  resources :main
+  root to: 'main#index'
 end

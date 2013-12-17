@@ -1,0 +1,9 @@
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+<p>
+  <strong>URL:</strong>
+  <% url = root_url.to_s.split("://")%>
+  <%= @company.subdomain %>.<%= url[1]%>
+</p>

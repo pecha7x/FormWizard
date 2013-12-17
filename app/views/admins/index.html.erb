@@ -1,0 +1,18 @@
+<h2>Your company name: <%= current_company.name%></h2>
+<p>Your current forms for users apply:</p>
+<div class="col-lg-offset-4">
+    <% @bunches.each do |bunch| %>
+      <div class="form_branch">
+        <p>
+          <strong>Name:</strong>
+          <%= bunch.name %>
+        </p>
+        <%unless bunch.fields.blank?%>
+            <% bunch.fields.each do |field|%>
+                <p>Input: <label><%= field.name%></label></p>
+            <%end%>
+        <%end%>
+        <%= link_to("Edit form", edit_bunch_type_path(bunch.id)) %>
+      </div>
+    <% end %>
+</div>

@@ -8,55 +8,56 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header class="navbar navbar-default navbar-fixed-top" role="banner">
-    <div class="navbar-header">
-      <%= link_to "The FormWizard",  new_poll_path(bunch_type_id:1), :class=>"navbar-brand" %>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class ="nav navbar-nav">
-        <li class="<%= 'active' if params[:controller] == "polls" && params[:action] == "new"%>"><%= link_to("POLLS", new_poll_path(bunch_type_id:1)) %></li>
-        <li class="<%= 'active' if params[:controller] == "bunch_types"%>"><%= link_to("CHANGE", edit_bunch_type_path(1)) %></li>
-        <li class="<%= 'active' if params[:controller] == "polls" && params[:action] == "show"%>"><%= link_to("ANSWERS", poll_path(1)) %></li>
-      </ul>
-    </div>
-  </header>
-  <div id="container">
-    <div class="bootstrap">
-      <div class="navbar">
-        <div class="navbar-inner">
-          <div class="container">
-            <ul class="nav nav-pills">
-              <%- if params[:controller] == "bunch_types"%>
-                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(1)) %>"><%= link_to("Contact Info", edit_bunch_type_path(1)) %></li>
-                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(11)) %>"><%= link_to("Motivation letter", edit_bunch_type_path(11)) %></li>
-                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(21)) %>"><%= link_to("Personal Info", edit_bunch_type_path(21)) %></li>
-                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(31)) %>"><%= link_to("Job", edit_bunch_type_path(31)) %></li>
-                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(41)) %>"><%= link_to("Accounts", edit_bunch_type_path(41)) %></li>
-                  <li class="<%= 'active' if current_page?(edit_bunch_type_path(51)) %>"><%= link_to("Extra uploads", edit_bunch_type_path(51)) %></li>
-              <%- elsif params[:controller] == "polls" && params[:action] == "new"%>
-                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:1)) %>"><%= link_to("Contact Info", new_poll_path(bunch_type_id:1)) %></li>
-                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:11)) %>"><%= link_to("Motivation letter", new_poll_path(bunch_type_id:11)) %></li>
-                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:21)) %>"><%= link_to("Personal Info", new_poll_path(bunch_type_id:21)) %></li>
-                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:31)) %>"><%= link_to("Job", new_poll_path(bunch_type_id:31)) %></li>
-                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:41)) %>"><%= link_to("Accounts", new_poll_path(bunch_type_id:41)) %></li>
-                  <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id:51)) %>"><%= link_to("Extra uploads", new_poll_path(bunch_type_id:51)) %></li>
-              <%- else%>
-                  <li class="<%= 'active' if current_page?(poll_path(1)) %>"><%= link_to("Contact Info",  poll_path(1)) %></li>
-                  <li class="<%= 'active' if current_page?(poll_path(11)) %>"><%= link_to("Motivation letter", poll_path(11)) %></li>
-                  <li class="<%= 'active' if current_page?(poll_path(21)) %>"><%= link_to("Personal Info", poll_path(21)) %></li>
-                  <li class="<%= 'active' if current_page?(poll_path(31)) %>"><%= link_to("Job", poll_path(31)) %></li>
-                  <li class="<%= 'active' if current_page?(poll_path(41)) %>"><%= link_to("Accounts",  poll_path(41)) %></li>
-                  <li class="<%= 'active' if current_page?(poll_path(51)) %>"><%= link_to("Extra uploads",  poll_path(51)) %></li>
-              <%- end%>
-            </ul>
-          </div>
+<header class="navbar navbar-default navbar-fixed-top" role="banner">
+  <div class="navbar-header">
+    <%= link_to "The FormWizard",  root_path, :class=>"navbar-brand" %>
+  </div>
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class ="nav navbar-nav">
+      <%if params[:controller] == "bunch_types" || (params[:controller] == "polls" && params[:action] == "show" )%>
+        <li class="<%= 'active' if params[:controller] == "admins" && params[:action] == "index"%>"><%= link_to("Your current forms", admins_path) %></li>
+        <%if !Poll.all.blank? and params[:controller] == "polls"%>
+          <li class="<%= 'active' if params[:controller] == "polls" && params[:action] == "show"%>"><%= link_to("Your applies", poll_path(Poll.first.id)) %></li>
+        <%end%>
+      <%end%>
+    </ul>
+    <ul class = "nav navbar-nav navbar-right">
+      <li>
+        <%- if user_signed_in?%>
+            <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, :class=>"btn btn-li btn-danger"%>
+        <%end%>
+      </li>
+    </ul>
+  </div>
+</header>
+<div id="container">
+  <div class="bootstrap">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav nav-pills">
+            <%- if params[:controller] == "bunch_types"%>
+                <%BunchType.order("id").all.each do |bunch|%>
+                    <li class="<%= 'active' if current_page?(edit_bunch_type_path("#{bunch.id}")) %>"><%= link_to("#{bunch.name}", edit_bunch_type_path(bunch.id)) %></li>
+                <%end%>
+            <%- elsif params[:controller] == "polls" && params[:action] == "show" %>
+                <%BunchType.order("id").all.each do |bunch|%>
+                    <li class="<%= 'active' if current_page?(poll_path("#{bunch.id}")) %>"><%= link_to("#{bunch.name}", poll_path(bunch.id)) %></li>
+                <%end%>
+            <%-else%>
+                <%BunchType.order("id").all.each do |bunch|%>
+                    <li class="<%= 'active' if current_page?(new_poll_path(bunch_type_id: "#{bunch.id}")) %>"><%= link_to("#{bunch.name}", (new_poll_path(bunch_type_id: "#{bunch.id}"))) %></li>
+                <%end%>
+            <%- end%>
+          </ul>
         </div>
       </div>
     </div>
-    <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
-    <% end %>
-    <%= yield %>
   </div>
+  <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+  <% end %>
+  <%= yield %>
+</div>
 </body>
 </html>

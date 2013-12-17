@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>FormWizard</title>
+  <meta charset="utf-8">
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header class="navbar navbar-default navbar-fixed-top" role="banner">
+  <div class="navbar-header">
+    <%= link_to "The FormWizard",  root_path, :class=>"navbar-brand" %>
+  </div>
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class ="nav navbar-nav">
+      <li class="<%= 'active' if params[:controller] == "companies" && params[:action] == "index"%>"><%= link_to("List of companies", companies_path) %></li>
+      <li class="<%= 'active' if params[:controller] == "companies"  && params[:action] != "index"%>"><%= link_to("New company", new_company_path) %></li>
+    </ul>
+    <ul class = "nav navbar-nav navbar-right">
+      <li>
+        <%- if user_signed_in?%>
+            <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, :class=>"btn btn-li btn-danger"%>
+        <%end%>
+      </li>
+    </ul>
+  </div>
+</header>
+<div id="container"  style="margin-top: 7%">
+  <% flash.each do |name, msg| %>
+      <br>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+  <% end %>
+  <%= yield %>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<% @companies.each do |company| %>
+    <div class="poll">
+      <h2><%= company.name %></h2>
+    </div>
+<% end %>
+<%= link_to 'Create a new company', new_company_path, :class => "btn btn-primary btn-xs"%>

@@ -1,4 +1,6 @@
 class BunchTypesController < ApplicationController
+  before_filter :authenticate_user!
+
   before_action :set_bunch_type, only: [:show, :edit, :update]
 
   def show
@@ -8,7 +10,6 @@ class BunchTypesController < ApplicationController
   end
 
   def update
-    p bunch_type_params
     respond_to do |format|
       if @bunch_type.update(bunch_type_params)
         format.html { redirect_to :back, notice: 'Group form type was successfully updated.' }
@@ -28,6 +29,6 @@ class BunchTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bunch_type_params
-      params.require(:bunch_type).permit(:name, fields_attributes: [:id, :field_type, :name, :required])
+      params.require(:bunch_type).permit(:name, :company_id, fields_attributes: [:id, :field_type, :name, :required])
     end
 end
